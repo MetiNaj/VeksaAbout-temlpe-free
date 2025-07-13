@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="رزومه و نمونه‌کارهای حرفه‌ای مهدی نجار، توسعه‌دهنده وب، شبکه و پایتون" />
+  <meta name="keywords" content="رزومه, نمونه‌کار, برنامه‌نویسی, طراحی وب, شبکه, پایتون, امنیت سایبری" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Mahdi Najar | رزومه مهدی نجار" />
+  <meta property="og:description" content="توسعه‌دهنده وب، شبکه و پایتون با پروژه‌های بین‌المللی" />
+  <meta property="og:image" content="assets/images/profile.png" />
+  <meta property="og:url" content="https://wpun.ir" />
+  <title>Mahdi Najar | مهدی نجار</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- لود Chart.js (لوکال یا CDN) -->
+  <script src="assets/js/chart.min.js"></script>
+  <!-- اگر از CDN استفاده می‌کنید، به جای خط بالا از این استفاده کنید -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.min.js"></script> -->
+  <style>
+    :root {
+      --primary-color: #3b82f6;
+      --secondary-color: #8b5cf6;
+      --gradient: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    }
+    @font-face {
+      font-family: 'Vazir';
+      src: url('assets/fonts/Vazir-Regular.woff2') format('woff2');
+      font-weight: normal;
+    }
+    @font-face {
+      font-family: 'Vazir';
+      src: url('assets/fonts/Vazir-Bold.woff2') format('woff2');
+      font-weight: bold;
+    }
+    body {
+      font-family: 'Vazir', sans-serif;
+      scroll-behavior: smooth;
+      background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+      transition: background 0.5s ease;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .dark body {
+      background: linear-gradient(135deg, #1f2937, #111827);
+    }
+    .navbar {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    .portfolio-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .portfolio-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    .glassmorphism {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glassmorphism:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .modal-content {
+      animation: zoomIn 0.3s ease-in-out;
+    }
+    .progress-bar {
+      background: var(--gradient);
+      border-radius: 9999px;
+      padding: 4px;
+      color: white;
+      text-align: right;
+      font-size: 0.875rem;
+      transition: width 1.5s ease-in-out;
+    }
+    .language-progress {
+      min-height: 24px;
+    }
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: var(--gradient);
+      z-index: 1000;
+      transition: width 0.2s ease;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--gradient);
+      color: white;
+      padding: 12px;
+      border-radius: 50%;
+      display: none;
+      z-index: 1000;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .back-to-top:hover {
+      transform: scale(1.1);
+    }
+    .flip-card-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .portfolio-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      backface-visibility: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .parallax {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease;
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-item {
+      min-width: 100%;
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 300px;
+      z-index: -1;
+    }
+    .typewriter h1 {
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 3s steps(40, end);
+    }
+    .flag-emoji {
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .certificate-image {
+      transition: transform 0.3s ease;
+    }
+    .glassmorphism:hover .certificate-image {
+      transform: scale(1.1);
+    }
+    .aside-section {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 1rem;
+    }
+    .aside-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .aside-section ul li {
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+    .aside-section ul li:hover {
+      color: #3b82f6;
+    }
+    .aside-section a {
+      transition: color 0.3s ease;
+    }
+    .aside-section a:hover {
+      color: #3b82f6;
+    }
+    canvas {
+      max-width: 100%;
+      height: 300px;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+      50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
+      100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+    }
+    .glow:hover {
+      animation: glow 1.5s infinite;
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- لودینگ اولیه -->
+  <div id="loading" class="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50">
+    <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+  </div>
+
+  <!-- نوار پیشرفت اسکرول -->
+  <div class="scroll-progress" style="width: 0;"></div>
+
+  <!-- دکمه بازگشت به بالا -->
+  <button class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- پس‌زمینه ذره‌ای -->
+  <div id="particles-js"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <!-- هدر -->
+    <header class="navbar shadow-lg rounded-b-2xl py-4 sticky top-0 z-50 animate__animated animate__fadeInDown">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <img src="assets/images/logo.svg" alt="Logo" class="h-12 rounded-lg animate__animated animate__pulse" />
+          <div class="typewriter ml-4">
+            <h1 class="text-xl font-bold text-gray-800 dark:text-gray-200">مهدی نجار</h1>
+          </div>
+          <nav class="hidden sm:flex mr-6">
+            <ul class="flex gap-x-6">
+              <li><a href="https://wpun.ir" class="hover:text-blue-500 transition-colors">وبسایت</a></li>
+              <li><a href="t.me://MetiFo" class="hover:text-blue-500 transition-colors">تلگرام</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="flex items-center gap-x-4">
+          <select id="langSwitch" class="bg-transparent border-0 text-gray-800 dark:text-gray-200">
+            <option value="fa">فارسی</option>
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+          </select>
+          <button id="toggleDarkMode" title="تغییر حالت تاریک">
+            <i class="fas fa-moon dark:hidden animate__animated animate__fadeIn"></i>
+            <i class="fas fa-sun hidden dark:block animate__animated animate__fadeIn"></i>
+          </button>
+          <button id="toggleMenu" class="sm:hidden">
+            <i class="fas fa-bars animate__animated animate__fadeIn"></i>
+          </button>
+        </div>
+      </div>
+      <nav id="mobileMenu" class="hidden sm:hidden mt-4 animate__animated animate__slideInDown">
+        <ul class="space-y-4 border-r border-gray-200 dark:border-gray-700 pr-4">
+          <li><a href="#" class="hover:text-blue-500 transition-colors">لینک خارجی 1</a></li>
+          <li><a href="#" class="hover:text-blue-500 transition-colors">لینک خارجی 2</a></li>
+          <li><a href="#" class="hover:text-blue-500 transition-colors">لینک خارجی 3</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- محتوای اصلی -->
+    <div class="flex flex-col lg:flex-row gap-6 mt-6">
+      <!-- سایدبار -->
+      <aside class="bg-gray-800 rounded-3xl p-6 lg:w-1/3 lg:sticky lg:top-20 animate__animated animate__fadeInUp">
+        <div class="text-center">
+          <img src="assets/images/profile.png" alt="پروفایل مهدی نجار" class="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-blue-500 animate__animated animate__zoomIn glow" data-tilt />
+          <h1 class="text-3xl font-bold text-white">مهدی نجار</h1>
+          <p class="text-gray-400 mt-2">19 ساله</p>
+          <div class="flex flex-wrap justify-center gap-2 my-4">
+            <span class="bg-blue-500 text-white px-3 py-1 rounded-full">برنامه‌نویس وب</span>
+            <span class="bg-blue-500 text-white px-3 py-1 rounded-full">شبکه</span>
+            <span class="bg-blue-500 text-white px-3 py-1 rounded-full">پایتون</span>
+          </div>
+          <div class="flex justify-center gap-4 my-4">
+            <a href="https://instagram.com/meti.naj" class="text-gray-300 hover:text-white" aria-label="اینستاگرام"><i class="fab fa-instagram text-2xl"></i></a>
+            <a href="https://twitter.com/tpsmot" class="text-gray-300 hover:text-white" aria-label="توییتر"><i class="fab fa-twitter text-2xl"></i></a>
+            <a href="https://linkedin.com/in/mahdi-najar-918301221" class="text-gray-300 hover:text-white" aria-label="لینکدین"><i class="fab fa-linkedin text-2xl"></i></a>
+          </div>
+          <table class="w-full text-gray-300 text-sm mx-auto max-w-xs">
+            <tbody>
+              <tr class="flex justify-between mb-2"><td>جنسیت</td><td>مرد</td></tr>
+              <tr class="flex justify-between mb-2"><td>وضعیت تاهل</td><td>مجرد</td></tr>
+              <tr class="flex justify-between mb-2"><td>وضعیت سربازی</td><td>معافیت تحصیلی</td></tr>
+              <tr class="flex justify-between mb-2"><td>تاریخ تولد</td><td>1385/11/29</td></tr>
+              <tr class="flex justify-between mb-2"><td>موقعیت</td><td>گرگان، ایران</td></tr>
+              <tr class="flex justify-between mb-2"><td>ایمیل</td><td>info@wpun.ir</td></tr>
+              <tr class="flex justify-between mb-2"><td>موبایل</td><td>09906880298</td></tr>
+            </tbody>
+          </table>
+          <a href="#" onclick="downloadResume()" class="block bg-blue-600 text-white py-3 px-6 rounded-lg mt-6 hover:bg-blue-700 transition-colors animate__animated animate__pulse glow">دانلود رزومه</a>
+
+          <!-- معیارهای عملکرد -->
+          <div class="mt-6 aside-section">
+            <h3 class="text-xl font-semibold text-white mb-3 flex items-center">
+              <i class="fas fa-chart-line mr-2"></i> معیارهای عملکرد
+            </h3>
+            <ul class="text-gray-300 text-sm space-y-2">
+              <li><i class="fas fa-star mr-2 text-yellow-400"></i> 98% رضایت مشتری</li>
+              <li><i class="fas fa-check-circle mr-2 text-green-400"></i> 30+ پروژه تحویل به‌موقع</li>
+              <li><i class="fas fa-rocket mr-2 text-blue-400"></i> 15% بهبود عملکرد وبسایت‌ها</li>
+            </ul>
+          </div>
+
+          <!-- گواهینامه‌های کلیدی -->
+          <div class="mt-6 aside-section">
+            <h3 class="text-xl font-semibold text-white mb-3 flex items-center">
+              <i class="fas fa-certificate mr-2"></i> گواهینامه‌های کلیدی
+            </h3>
+            <ul class="text-gray-300 text-sm space-y-2">
+              <li><i class="fas fa-medal mr-2 text-yellow-400"></i> ICDL (فنی‌وحرفه‌ای، 1400)</li>
+              <li><i class="fas fa-medal mr-2 text-yellow-400"></i> <a href="#" class="hover:text-blue-400">Linux Professional (Udemy, 1402)</a></li>
+            </ul>
+          </div>
+
+          <!-- مشتریان برجسته -->
+          <div class="mt-6 aside-section">
+            <h3 class="text-xl font-semibold text-white mb-3 flex items-center">
+              <i class="fas fa-building mr-2"></i> مشتریان برجسته
+            </h3>
+            <ul class="text-gray-300 text-sm space-y-2">
+              <li><i class="fas fa-briefcase mr-2 text-blue-400"></i> مدرسان شریف</li>
+              <li><i class="fas fa-briefcase mr-2 text-blue-400"></i> شرکت دُرنیتو</li>
+            </ul>
+          </div>
+
+          <!-- تخصص‌های متمرکز -->
+          <div class="mt-6 aside-section">
+            <h3 class="text-xl font-semibold text-white mb-3 flex items-center">
+              <i class="fas fa-code mr-2"></i> تخصص‌های متمرکز
+            </h3>
+            <ul class="text-gray-300 text-sm space-y-2">
+              <li><i class="fas fa-laptop-code mr-2 text-green-400"></i> توسعه وب: سایت‌های مقیاس‌پذیر</li>
+              <li><i class="fas fa-server mr-2 text-green-400"></i> شبکه: سرورهای امن لینوکس</li>
+            </ul>
+          </div>
+
+          <!-- فعالیت‌های حرفه‌ای -->
+          <div class="mt-6 aside-section">
+            <h3 class="text-xl font-semibold text-white mb-3 flex items-center">
+              <i class="fas fa-users mr-2"></i> فعالیت‌های حرفه‌ای
+            </h3>
+            <ul class="text-gray-300 text-sm space-y-2">
+              <li><i class="fas fa-microphone mr-2 text-yellow-400"></i> سخنران فناوری گرگان 1402</li>
+              <li><i class="fas fa-code-branch mr-2 text-yellow-400"></i> عضو انجمن توسعه‌دهندگان وب</li>
+            </ul>
+          </div>
+
+          <!-- ابزارهای مورد استفاده -->
+          <div class="mt-6 aside-section">
+            <h3 class="text-xl font-semibold text-white mb-3 flex items-center">
+              <i class="fas fa-tools mr-2"></i> ابزارهای مورد استفاده
+            </h3>
+            <div class="flex flex-wrap justify-center gap-4">
+              <i class="fab fa-docker text-2xl text-gray-300 hover:text-blue-400" title="Docker"></i>
+              <i class="fab fa-git-alt text-2xl text-gray-300 hover:text-blue-400" title="Git"></i>
+              <i class="fab fa-python text-2xl text-gray-300 hover:text-blue-400" title="Python"></i>
+            </div>
+          </div>
+
+          <!-- پروژه در حال انجام -->
+          <div class="mt-6 aside-section">
+            <h3 class="text-xl font-semibold text-white mb-3 flex items-center">
+              <i class="fas fa-project-diagram mr-2"></i> پروژه در حال انجام
+            </h3>
+            <p class="text-gray-300 text-sm"><i class="fas fa-code mr-2 text-blue-400"></i> پلتفرم تجارت الکترونیک</p>
+            <p class="text-gray-300 text-sm"><i class="fas fa-spinner mr-2 text-green-400"></i> پیشرفت: 75%</p>
+          </div>
+
+          <!-- دعوت به همکاری -->
+          <div class="mt-6 aside-section">
+            <h3 class="text-xl font-semibold text-white mb-3 flex items-center">
+              <i class="fas fa-handshake mr-2"></i> دعوت به همکاری
+            </h3>
+            <p class="text-gray-300 text-sm mb-2">آماده همکاری در پروژه‌های وب و شبکه</p>
+            <a href="https://linkedin.com/in/mahdi-najar-918301221" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 glow">تماس از لینکدین</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- محتوای اصلی -->
+      <main class="bg-white dark:bg-gray-800 rounded-3xl p-6 lg:p-10 lg:w-2/3">
+        <!-- بیوگرافی -->
+        <section class="mb-12 animate__animated animate__fadeInUp">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <i class="fas fa-user mr-3"></i> بیوگرافی
+          </h2>
+          <div class="glassmorphism p-6 rounded-2xl shadow-lg">
+            <div class="flex justify-center gap-3 mb-6">
+              <button onclick="switchLang('fa')" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 glow">فارسی</button>
+              <button onclick="switchLang('en')" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 glow">English</button>
+              <button onclick="switchLang('de')" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 glow">Deutsch</button>
+            </div>
+            <div id="bio-fa" class="bio-lang">
+              <p class="text-gray-600 dark:text-gray-300">مهدی نجار، توسعه‌دهنده نرم‌افزار با تخصص در برنامه‌نویسی وب، شبکه و سرور. از سنین پایین وارد دنیای فناوری شدم و اکنون پروژه‌های بین‌المللی را با موفقیت اجرا می‌کنم.</p>
+              <div class="flex justify-center gap-4 mt-4">
+                <button onclick="speakBio('fa')" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 glow">پخش صدا</button>
+                <button onclick="downloadPDF('fa')" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 glow">دانلود PDF</button>
+              </div>
+            </div>
+            <div id="bio-en" class="bio-lang hidden">
+              <p class="text-gray-600 dark:text-gray-300">Mahdi Najar, a software developer specializing in web programming, networking, and servers. I entered the tech world at a young age and now successfully execute international projects.</p>
+              <div class="flex justify-center gap-4 mt-4">
+                <button onclick="speakBio('en')" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 glow">Play Audio</button>
+                <button onclick="downloadPDF('en')" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 glow">Download PDF</button>
+              </div>
+            </div>
+            <div id="bio-de" class="bio-lang hidden">
+              <p class="text-gray-600 dark:text-gray-300">Mahdi Najari ist ein Softwareentwickler mit Spezialisierung auf Webprogrammierung, Netzwerktechnik und Server. Ich begann früh in der Tech-Welt und führe nun internationale Projekte erfolgreich durch.</p>
+              <div class="flex justify-center gap-4 mt-4">
+                <button onclick="speakBio('de')" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 glow">Audio abspielen</button>
+                <button onclick="downloadPDF('de')" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 glow">PDF herunterladen</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- سوابق شغلی -->
+        <section class="mb-12 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <i class="fas fa-briefcase mr-3"></i> سوابق شغلی
+          </h2>
+          <ul class="space-y-6">
+            <li class="border-r-4 border-blue-500 pr-4">
+              <h3 class="text-xl font-semibold">طراح سایت - مدرسان شریف</h3>
+              <p class="text-sm text-gray-500">1397 - 1400</p>
+              <p>عضو تیم طراحی وب با تمرکز بر رابط کاربری و تجربه کاربری.</p>
+            </li>
+            <li class="border-r-4 border-blue-500 pr-4">
+              <h3 class="text-xl font-semibold">فریلنسر - طراحی وب</h3>
+              <p class="text-sm text-gray-500">1400 - 1403</p>
+              <p>اجرای پروژه‌های متنوع وب برای مشتریان داخلی و خارجی.</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- سوابق تحصیلی -->
+        <section class="mb-12 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <i class="fas fa-graduation-cap mr-3"></i> سوابق تحصیلی
+          </h2>
+          <ul class="space-y-6">
+            <li class="border-r-4 border-blue-500 pr-4">
+              <h3 class="text-xl font-semibold">درحال دستیابی به دیپلم</h3>
+              <p class="text-sm text-gray-500"> — </p>
+              <p>در حال تحصیل در رشته علوم تجربی</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- مهارت‌ها -->
+        <section class="mb-12 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <i class="fas fa-tools mr-3"></i> مهارت‌ها
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <span class="block font-medium mb-2">WordPress</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 99%;">99%</div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-medium mb-2">HTML</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 100%;">100%</div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-medium mb-2">CSS</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 80%;">80%</div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-medium mb-2">JavaScript</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 70%;">70%</div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-medium mb-2">PHP/Laravel</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 60%;">60%</div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-medium mb-2">MySQL</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 90%;">90%</div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-medium mb-2">Python</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 75%;">75%</div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-medium mb-2">Network</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 85%;">85%</div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-medium mb-2">Linux</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 70%;">70%</div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-medium mb-2">Cyber</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 65%;">65%</div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-medium mb-2">Git</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 80%;">80%</div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-medium mb-2">Docker</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 60%;">60%</div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-medium mb-2">ICDL</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full">
+                <div class="progress-bar" style="width: 100%;">100%</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- نمودارهای عملکرد -->
+        <section class="mb-12 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <i class="fas fa-chart-pie mr-3"></i> نمودارهای عملکرد
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="glassmorphism p-6 rounded-2xl shadow-lg">
+              <h3 class="text-lg font-semibold mb-4">توزیع پروژه‌ها</h3>
+              <canvas id="projectChart" style="max-width: 100%; height: 300px;"></canvas>
+            </div>
+            <div class="glassmorphism p-6 rounded-2xl shadow-lg">
+              <h3 class="text-lg font-semibold mb-4">رشد مهارت‌ها</h3>
+              <canvas id="skillChart" style="max-width: 100%; height: 300px;"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- زبان‌ها -->
+        <section class="mb-12 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <i class="fas fa-globe mr-3"></i> زبان‌ها
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <span class="block font-medium mb-2 text-gray-800 dark:text-gray-200"><span class="flag-emoji">🇮🇷</span> فارسی</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <div class="progress-bar language-progress" style="width: 0%;" data-width="100">100%</div>
+              </div>
+            </div>
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <span class="block font-medium mb-2 text-gray-800 dark:text-gray-200"><span class="flag-emoji">🇬🇧</span> انگلیسی</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <div class="progress-bar language-progress" style="width: 0%;" data-width="80">80%</div>
+              </div>
+            </div>
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <span class="block font-medium mb-2 text-gray-800 dark:text-gray-200"><span class="flag-emoji">🇸🇦</span> عربی</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <div class="progress-bar language-progress" style="width: 0%;" data-width="40">40%</div>
+              </div>
+            </div>
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <span class="block font-medium mb-2 text-gray-800 dark:text-gray-200"><span class="flag-emoji">🇩🇪</span> آلمانی (A2)</span>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <div class="progress-bar language-progress" style="width: 0%;" data-width="40">40%</div>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">در حال مطالعه تا سطح B2 تا 6 ماه آینده</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- علاقه‌مندی‌ها -->
+        <section class="mb-12 animate__animated animate__fadeInUp" style="animation-delay: 0.7s;">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <i class="fas fa-star mr-3"></i> علاقه‌مندی‌ها
+          </h2>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full glow">یادگیری</span>
+            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full glow">موزیک کلاسیک/هیپ</span>
+            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full glow">طراحی و شبکه</span>
+            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full glow">کار تیمی</span>
+            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full glow">سئو</span>
+            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full glow">امنیت سایبری</span>
+          </div>
+        </section>
+
+        <!-- نمونه‌کارها -->
+        <section class="mb-12 animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <i class="fas fa-folder-open mr-3"></i> نمونه‌کارها
+          </h2>
+          <div class="flex flex-col sm:flex-row gap-4 mb-6">
+            <select id="portfolioFilter" class="bg-gray-100 dark:bg-gray-700 p-2 rounded-lg glow">
+              <option value="all">همه</option>
+              <option value="web">وبسایت</option>
+              <option value="app">اپلیکیشن</option>
+              <option value="network">شبکه</option>
+            </select>
+            <input id="portfolioSearch" type="text" placeholder="جستجوی پروژه..." class="bg-gray-100 dark:bg-gray-700 p-2 rounded-lg w-full sm:w-1/2 glow" />
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
+            <div class="portfolio-card bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden" data-category="web" data-tilt>
+              <img src="assets/images/1.png" alt="پروژه فروشگاهی" class="w-full h-48 object-cover lazy parallax" loading="lazy" />
+              <div class="p-4">
+                <h3 class="text-lg font-semibold">پروژه اول</h3>
+                <p class="text-gray-500">طراحی وبسایت فروشگاهی</p>
+                <a href="https://dornito.net" class="text-blue-500 hover:underline glow">مشاهده</a>
+              </div>
+            </div>
+            <div class="portfolio-card glassmorphism rounded-2xl shadow-lg overflow-hidden relative group" data-category="web" data-tilt>
+              <img src="assets/images/2.png" alt="وبسایت شخصی" class="w-full h-48 object-cover group-hover:opacity-50 transition-opacity lazy parallax" loading="lazy" />
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <a href="https://wpun.ir" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 animate__animated animate__pulse glow">مشاهده پروژه</a>
+              </div>
+              <div class="p-4">
+                <h3 class="text-lg font-semibold">پروژه دوم</h3>
+                <p class="text-gray-500">وبسایت شخصی</p>
+              </div>
+            </div>
+            <div class="portfolio-card bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden" data-category="app" data-tilt>
+              <img src="assets/images/3.png" alt="داشبورد مدیریتی" class="w-full h-48 object-cover lazy parallax" loading="lazy" />
+              <div class="p-4">
+                <h3 class="text-lg font-semibold">پروژه سوم</h3>
+                <p class="text-gray-500">طراحی داشبورد مدیریتی</p>
+                <button onclick="openModal('modal3')" class="text-blue-500 hover:underline glow">جزئیات</button>
+              </div>
+            </div>
+            <div class="portfolio-card relative h-64" data-category="network" data-tilt>
+              <div class="flip-card-inner absolute w-full h-full transition-transform duration-500 transform-style-preserve-3d">
+                <div class="flip-card-front absolute w-full h-full bg-white dark:bg-gray-700 rounded-2xl shadow-lg">
+                  <img src="assets/images/4.png" alt="پیکربندی سرور" class="w-full h-48 object-cover lazy parallax" loading="lazy" />
+                  <div class="p-4">
+                    <h3 class="text-lg font-semibold">پروژه چهارم</h3>
+                    <p class="text-gray-500">پیکربندی سرور</p>
+                  </div>
+                </div>
+                <div class="flip-card-back absolute w-full h-full rounded-2xl shadow-lg flex items-center justify-center transform rotate-y-180">
+                  <a href="#" class="text-white hover:underline glow">مشاهده جزئیات</a>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-card bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden" data-category="web" data-tilt>
+              <video class="w-full h-48 object-cover lazy" loading="lazy" muted loop playsinline>
+                <source src="assets/videos/project5.mp4" type="video/mp4">
+              </video>
+              <div class="p-4">
+                <h3 class="text-lg font-semibold">پروژه پنجم</h3>
+                <p class="text-gray-500">وبسایت تعاملی</p>
+                <a href="#" class="text-blue-500 hover:underline glow">مشاهده</a>
+              </div>
+            </div>
+            <div class="portfolio-card bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden" data-category="app" data-tilt>
+              <img src="assets/images/6.png" alt="اپلیکیشن موبایل" class="w-full h-48 object-cover lazy parallax" loading="lazy" />
+              <div class="p-4">
+                <h3 class="text-lg font-semibold">پروژه ششم</h3>
+                <p class="text-gray-500">اپلیکیشن موبایل</p>
+                <button onclick="openModal('modal6')" class="text-blue-500 hover:underline glow">تایم‌لاین پروژه</button>
+              </div>
+            </div>
+          </div>
+          <div id="modal3" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-lg w-full animate__animated animate__zoomIn">
+              <h3 class="text-xl font-bold mb-4">پروژه سوم</h3>
+              <div class="carousel relative">
+                <div class="carousel-inner flex transition-transform duration-500">
+                  <img src="assets/images/3.png" alt="تصویر پروژه سوم" class="w-full rounded-lg carousel-item" />
+                  <img src="assets/images/3-2.png" alt="تصویر دوم پروژه سوم" class="w-full rounded-lg carousel-item" />
+                </div>
+                <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-blue-500 text-white p-2 rounded-full glow" onclick="prevSlide('modal3')" aria-label="اسلاید قبلی">❮</button>
+                <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-blue-500 text-white p-2 rounded-full glow" onclick="nextSlide('modal3')" aria-label="اسلاید بعدی">❯</button>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 mt-4">این پروژه شامل طراحی یک داشبورد مدیریتی با رابط کاربری مدرن و قابلیت‌های تعاملی است.</p>
+              <div class="flex justify-end gap-4 mt-4">
+                <button onclick="closeModal('modal3')" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-lg glow">بستن</button>
+                <a href="https://matorsaz.ir" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 glow">مشاهده سایت</a>
+              </div>
+            </div>
+          </div>
+          <div id="modal6" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="modal-content bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-lg w-full animate__animated animate__zoomIn">
+              <h3 class="text-xl font-bold mb-4">تایم‌لاین پروژه ششم</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <span class="w-4 h-4 bg-blue-500 rounded-full mt-1"></span>
+                  <div class="mr-4">
+                    <h4 class="font-semibold">فاز 1: طراحی اولیه</h4>
+                    <p class="text-gray-600 dark:text-gray-300">1399 - طراحی رابط کاربری</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="w-4 h-4 bg-blue-500 rounded-full mt-1"></span>
+                  <div class="mr-4">
+                    <h4 class="font-semibold">فاز 2: توسعه</h4>
+                    <p class="text-gray-600 dark:text-gray-300">1400 - پیاده‌سازی بک‌اند</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="w-4 h-4 bg-blue-500 rounded-full mt-1"></span>
+                  <div class="mr-4">
+                    <h4 class="font-semibold">فاز 3: انتشار</h4>
+                    <p class="text-gray-600 dark:text-gray-300">1401 - انتشار اپلیکیشن</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="flex justify-end gap-4 mt-4">
+                <button onclick="closeModal('modal6')" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-lg glow">بستن</button>
+                <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 glow">مشاهده پروژه</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- گواهینامه‌ها و افتخارات -->
+        <section class="mb-12 animate__animated animate__fadeInUp" style="animation-delay: 0.9s;">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <i class="fas fa-certificate mr-3"></i> گواهینامه‌ها و افتخارات
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <img src="assets/images/certificates/icdl.png" alt="گواهینامه ICDL" class="w-full h-32 object-cover rounded-lg mb-4 certificate-image" loading="lazy" />
+              <h3 class="text-lg font-semibold">گواهینامه ICDL</h3>
+              <p class="text-gray-500">دریافت‌شده از سازمان فنی‌وحرفه‌ای - 1400</p>
+              <p class="text-gray-600 dark:text-gray-300">تسلط بر مهارت‌های هفت‌گانه فناوری اطلاعات.</p>
+            </div>
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <img src="assets/images/certificates/linux.png" alt="دوره پیشرفته لینوکس" class="w-full h-32 object-cover rounded-lg mb-4 certificate-image" loading="lazy" />
+              <h3 class="text-lg font-semibold">دوره پیشرفته لینوکس</h3>
+              <p class="text-gray-500">Udemy - 1402</p>
+              <p class="text-gray-600 dark:text-gray-300">مدیریت سرورهای لینوکس و پیکربندی حرفه‌ای.</p>
+            </div>
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <img src="assets/images/certificates/hackathon.png" alt="رتبه برتر هکاتون وب" class="w-full h-32 object-cover rounded-lg mb-4 certificate-image" loading="lazy" />
+              <h3 class="text-lg font-semibold">رتبه برتر هکاتون وب</h3>
+              <p class="text-gray-500">دانشگاه گرگان - 1401</p>
+              <p class="text-gray-600 dark:text-gray-300">کسب رتبه اول در طراحی وبسایت تعاملی.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- پروژه‌های متن‌باز -->
+        <section class="mb-12 animate__animated animate__fadeInUp" style="animation-delay: 1.0s;">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <i class="fab fa-github mr-3"></i> پروژه‌های متن‌باز
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="portfolio-card glassmorphism rounded-2xl shadow-lg overflow-hidden relative group">
+              <div class="p-4">
+                <h3 class="text-lg font-semibold">پلاگین وردپرس</h3>
+                <p class="text-gray-500">افزونه بهینه‌سازی SEO</p>
+                <p class="text-gray-600 dark:text-gray-300">پلاگینی برای بهبود سئو سایت‌های وردپرسی با بیش از 1000 دانلود.</p>
+                <a href="https://github.com/mahdi-najar/wp-seo-plugin" class="text-blue-500 hover:underline glow">مشاهده در گیت‌هاب</a>
+              </div>
+            </div>
+            <div class="portfolio-card glassmorphism rounded-2xl shadow-lg overflow-hidden relative group">
+              <div class="p-4">
+                <h3 class="text-lg font-semibold">ابزار شبکه پایتون</h3>
+                <p class="text-gray-500">اسکریپت اسکن شبکه</p>
+                <p class="text-gray-600 dark:text-gray-300">ابزاری برای اسکن و تحلیل شبکه‌های محلی با پایتون.</p>
+                <a href="https://github.com/mahdi-najar/network-scanner" class="text-blue-500 hover:underline glow">مشاهده در گیت‌هاب</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- توصیه‌نامه‌ها -->
+        <section class="mb-12 animate__animated animate__fadeInUp" style="animation-delay: 1.1s;">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <i class="fas fa-quote-right mr-3"></i> توصیه‌نامه‌ها
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <p class="text-gray-600 dark:text-gray-300 italic">"مهدی با مهارت و تعهد بی‌نظیر، پروژه وبسایت ما را به بهترین شکل اجرا کرد."</p>
+              <p class="text-gray-500 mt-2 font-semibold">علی محمدی - مدیر شرکت دُرنیتو</p>
+            </div>
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <p class="text-gray-600 dark:text-gray-300 italic">"کار تیمی و دانش فنی مهدی در زمینه شبکه، پروژه ما را به سطح جدیدی برد."</p>
+              <p class="text-gray-500 mt-2 font-semibold">سارا احمدی - همکار فریلنسر</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- مهارت‌های نرم -->
+        <section class="mb-12 animate__animated animate__fadeInUp" style="animation-delay: 1.2s;">
+          <h2 class="text-3xl font-bold mb-6 flex items-center">
+            <i class="fas fa-users mr-3"></i> مهارت‌های نرم
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <h3 class="text-lg font-semibold">مدیریت زمان</h3>
+              <p class="text-gray-600 dark:text-gray-300">توانایی اولویت‌بندی وظایف و تحویل پروژه‌ها در زمان مقرر.</p>
+            </div>
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <h3 class="text-lg font-semibold">حل مسئله</h3>
+              <p class="text-gray-600 dark:text-gray-300">رویکرد خلاقانه برای رفع چالش‌های فنی و غیرفنی.</p>
+            </div>
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <h3 class="text-lg font-semibold">ارتباط موثر</h3>
+              <p class="text-gray-600 dark:text-gray-300">مهارت در تعامل با مشتریان و تیم‌های چندرشته‌ای.</p>
+            </div>
+            <div class="glassmorphism p-4 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+              <h3 class="text-lg font-semibold">کار تیمی</h3>
+              <p class="text-gray-600 dark:text-gray-300">همکاری موفق در پروژه‌های گروهی و محیط‌های پویا.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- فوتر -->
+    <footer class="text-center py-8 text-gray-500 animate__animated animate__fadeInUp" style="animation-delay: 1.3s;">
+      <p>© 1404 مهدی نجار - تمامی حقوق محفوظ است</p>
+    </footer>
+  </div>
+
+  <!-- فایل سرویس‌ورکر برای PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log('Service Worker Registered'))
+        .catch(err => console.error('Service Worker Error:', err));
+    }
+  </script>
+
+  <!-- اسکریپت‌ها -->
+  <script>
+    // لودینگ اولیه
+    window.addEventListener('load', () => {
+      document.getElementById('loading').classList.add('hidden');
+    });
+
+    // پس‌زمینه ذره‌ای
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: '#3b82f6' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#3b82f6', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: 'none', random: false }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+        modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+      }
+    });
+
+    // انیمیشن‌های GSAP
+    gsap.from('header', { y: -100, opacity: 0, duration: 1, ease: 'power3.out' });
+    gsap.from('aside', { x: -100, opacity: 0, duration: 1, delay: 0.5, ease: 'power3.out' });
+    gsap.from('main section', {
+      scrollTrigger: { trigger: 'main', start: 'top 80%' },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.3,
+      ease: 'power3.out'
+    });
+
+    // انیمیشن نوارهای پیشرفت مهارت‌ها و زبان‌ها
+    gsap.utils.toArray('.progress-bar').forEach(bar => {
+      gsap.to(bar, {
+        scrollTrigger: {
+          trigger: bar,
+          start: 'top 80%',
+        },
+        width: bar.dataset.width ? bar.dataset.width + '%' : bar.style.width,
+        duration: 1.5,
+        ease: 'power3.out'
+      });
+    });
+
+    // افکت Tilt
+    $('.portfolio-card').tilt({ maxTilt: 15, scale: 1.05, speed: 400 });
+
+    // تغییر حالت تاریک
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+    document.getElementById('toggleDarkMode').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    });
+
+    // منوی موبایل
+    document.getElementById('toggleMenu').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // تغییر زبان بیوگرافی
+    function switchLang(lang) {
+      document.querySelectorAll('.bio-lang').forEach(el => el.classList.add('hidden'));
+      document.getElementById(`bio-${lang}`).classList.remove('hidden');
+    }
+
+    // پخش صدا
+    function speakBio(lang) {
+      const textMap = {
+        fa: document.querySelector("#bio-fa p").textContent,
+        en: document.querySelector("#bio-en p").textContent,
+        de: document.querySelector("#bio-de p").textContent
+      };
+      const utterance = new SpeechSynthesisUtterance(textMap[lang]);
+      utterance.lang = lang === "fa" ? "fa-IR" : lang === "en" ? "en-US" : "de-DE";
+      speechSynthesis.cancel();
+      speechSynthesis.speak(utterance);
+    }
+
+    // دانلود PDF بیوگرافی
+    function downloadPDF(lang) {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFont('Vazir', 'normal');
+      doc.text(document.querySelector(`#bio-${lang} p`).textContent, 10, 10, { align: 'right', maxWidth: 180 });
+      doc.save(`MahdiNajari_Bio_${lang}.pdf`);
+    }
+
+    // دانلود رزومه
+    function downloadResume() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFont('Vazir', 'normal');
+      doc.text('رزومه مهدی نجار', 190, 10, { align: 'right' });
+      doc.text('نام: مهدی نجار', 190, 20, { align: 'right' });
+      doc.text('سن: 19 سال', 190, 30, { align: 'right' });
+      doc.text('ایمیل: info@wpun.ir', 190, 40, { align: 'right' });
+      doc.text('موبایل: 09906880298', 190, 50, { align: 'right' });
+      doc.text('مهارت‌ها:', 190, 60, { align: 'right' });
+      doc.text('WordPress: 99%', 190, 70, { align: 'right' });
+      doc.text('HTML: 100%', 190, 80, { align: 'right' });
+      doc.text('CSS: 80%', 190, 90, { align: 'right' });
+      doc.text('JavaScript: 70%', 190, 100, { align: 'right' });
+      doc.text('PHP/Laravel: 60%', 190, 110, { align: 'right' });
+      doc.text('MySQL: 90%', 190, 120, { align: 'right' });
+      doc.text('پایتون: 75%', 190, 130, { align: 'right' });
+      doc.text('شبکه: 85%', 190, 140, { align: 'right' });
+      doc.text('لینوکس: 70%', 190, 150, { align: 'right' });
+      doc.text('امنیت سایبری: 65%', 190, 160, { align: 'right' });
+      doc.text('Git: 80%', 190, 170, { align: 'right' });
+      doc.text('Docker: 60%', 190, 180, { align: 'right' });
+      doc.text('ICDL: 100%', 190, 190, { align: 'right' });
+      doc.save('MahdiNajari_Resume.pdf');
+    }
+
+    // مدیریت مودال
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    // کاروسل در مودال
+    let currentSlide = 0;
+    function nextSlide(modalId) {
+      const carousel = document.querySelector(`#${modalId} .carousel-inner`);
+      const items = carousel.querySelectorAll('.carousel-item');
+      currentSlide = (currentSlide + 1) % items.length;
+      carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    function prevSlide(modalId) {
+      const carousel = document.querySelector(`#${modalId} .carousel-inner`);
+      const items = carousel.querySelectorAll('.carousel-item');
+      currentSlide = (currentSlide - 1 + items.length) % items.length;
+      carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // فیلتر و جستجوی نمونه‌کارها
+    document.getElementById('portfolioFilter').addEventListener('change', filterPortfolio);
+    document.getElementById('portfolioSearch').addEventListener('input', filterPortfolio);
+    function filterPortfolio() {
+      const filter = document.getElementById('portfolioFilter').value;
+      const search = document.getElementById('portfolioSearch').value.toLowerCase();
+      const cards = document.querySelectorAll('#portfolioGrid .portfolio-card');
+      cards.forEach(card => {
+        const category = card.dataset.category;
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const matchesFilter = filter === 'all' || category === filter;
+        const matchesSearch = title.includes(search);
+        card.style.display = matchesFilter && matchesSearch ? 'block' : 'none';
+      });
+    }
+
+    // بازگشت به بالا
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    window.addEventListener('scroll', () => {
+      const backToTop = document.querySelector('.back-to-top');
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+      const scrollProgress = document.querySelector('.scroll-progress');
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      scrollProgress.style.width = `${(window.scrollY / totalHeight) * 100}%`;
+    });
+
+    // نمودارهای عملکرد
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        // نمودار توزیع پروژه‌ها
+        new Chart(document.getElementById('projectChart'), {
+          type: 'pie',
+          data: {
+            labels: ['وبسایت', 'شبکه', 'اپلیکیشن'],
+            datasets: [{
+              data: [60, 30, 10],
+              backgroundColor: ['#3b82f6', '#8b5cf6', '#10b981'],
+              borderColor: '#fff',
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'top' }
+            }
+          }
+        });
+
+        // نمودار رشد مهارت‌ها
+        new Chart(document.getElementById('skillChart'), {
+          type: 'bar',
+          data: {
+            labels: ['1400', '1401', '1402', '1403'],
+            datasets: [{
+              label: 'رشد مهارت‌ها',
+              data: [20, 40, 70, 90],
+              backgroundColor: '#3b82f6',
+              borderColor: '#1e40af',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: { beginAtZero: true, title: { display: true, text: 'درصد تسلط' } }
+            }
+          }
+        });
+      } catch (error) {
+        console.error('خطا در رندر نمودارها:', error);
+      }
+    });
+  </script>
+</body>
+</html>
